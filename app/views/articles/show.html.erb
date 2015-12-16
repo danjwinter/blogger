@@ -2,6 +2,17 @@
 <p>
   <%= @article.body %>
 </p>
+
+
+<br>
+
+
 <%= link_to "Improve that ish!", edit_article_path(@article) %>
 <%= link_to "Toss that ish!", article_path(@article), method: :delete, data: {confirm: "Fo Rizzle?"} %>
+
+<%= render partial: 'comments/form' %>
+<br>
+<h3> ALL <%= @article.comments.size %> peeps are talkin' 'bout you!</h3>
+<%= render partial: 'articles/comment', collection: @article.comments %>
+<br>
 <%= link_to "<< Back to That BadAss List O' Articles", articles_path %>
